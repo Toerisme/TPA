@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1>Listing budgetposts</h1>
+</div>
+
+<%= link_to 'Nieuwe Budgetpost', new_budgetpost_path, class: "btn btn-primary" %>
+
+<table class="table table-hover">
+  <tr>
+    <th>Nummer</th>   
+    <th>Omschrijving</th>
+    <th>Last edited by</th>
+    <th>Verantwoordelijke</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @budgetposts.each do |budgetpost| %>
+  <tr>
+    <td><%= budgetpost.nummer %></td>
+    <td><%= budgetpost.omschrijving %></td>
+    <td><%= budgetpost.last_edited_by %></td>
+    <td>&nbsp;</td>
+    <td><%= link_to 'Wijzig', edit_budgetpost_path(budgetpost) %></td>
+    <td><%= link_to 'Verwijder', budgetpost, method: :delete, data: { confirm: 'Bent u zeker?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nieuwe Budgetpost', new_budgetpost_path, class: "btn btn-primary" %>

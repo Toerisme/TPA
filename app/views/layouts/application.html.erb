@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TPA</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+  	<div class="navbar-inner">
+	  <div class="container">
+	  	<a href="#" class="brand">TPAlles</a>
+	  	<ul class="nav">
+	  	  <li><%= link_to "Budgetposten", budgetposts_path %></li>
+	  	  <li><%= link_to "Bestelbons", "#" %></li>
+	  	</ul>
+	  	<ul class="nav pull-right">
+	  	  <% if user_signed_in? %>
+	  	    <li><%= link_to current_user.profile_name, edit_user_registration_path %></li>
+	  	    <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+	  	  <% else %>
+	  	  	<li><%= link_to "Log in", new_user_session_path %></li>
+	  	  <% end %>
+	  	</ul>
+	  </div>
+	</div>
+  </div>
+	  <p class="notice"><%= notice %></p>
+	  <p class="alert"><%= alert %></p>
+	  <%= yield %>
+	</div>
+
+</body>
+</html>

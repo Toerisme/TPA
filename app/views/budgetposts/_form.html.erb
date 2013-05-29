@@ -1,0 +1,21 @@
+<%= form_for(@budgetpost) do |f| %>
+  <% if @budgetpost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@budgetpost.errors.count, "error") %> prohibited this budgetpost from being saved:</h2>
+
+      <ul>
+      <% @budgetpost.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div><%= f.label :nummer %><br />
+  <%= f.text_field :nummer %></div>
+  
+  <div><%= f.label :omschrijving %><br />
+  <%= f.text_field :omschrijving %></div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
